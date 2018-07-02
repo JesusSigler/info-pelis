@@ -8,7 +8,7 @@ SQL server
 
 Tomcat - eclipse o netbeans
 
-Modificar password de conexión a la base de datos en las clases ServicePelis.java y ServiceUsuarios.java en el método conectar()
+Modificar password de conexión a la base de datos en las clases ServicePelis.java y ServiceUsuarios.java en src/main/java/com/aula114/service/ del método conectar()
  
  -------------------------------------------
 
