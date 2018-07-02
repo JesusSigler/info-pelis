@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./Template/plantilla.xhtml">
+
+            <ui:define name="content">
+                <p:outputPanel  id="containerPeliculas">
+                    <h2>Gestion de peliculas</h2>
+                    <h:form id="formulario">
+                        <p>
+                            <p:dataTable id="listaPeliculas" value="#{pelicula.listaPelis}" styleClass="borderless" var="p" paginator="true" rows="10" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15">
+                                <p:growl id="message1" showDetail="true" autoUpdate="true" /> 
+                                <p:column width="100" filterBy="#{p.idPelicula}">
+                                    <f:facet name="header">ID</f:facet>
+                                    <h:outputText value="#{p.idPelicula}" />
+                                </p:column>
+                                <p:column width="300" filterBy="#{p.titulo}">
+                                    <f:facet name="header">Titulo</f:facet>
+                                    <h:outputText value="#{p.titulo}" />
+                                </p:column>
+                                <p:column width="100" filterBy="#{p.genero}">
+                                    <f:facet name="header">Genero</f:facet>
+                                    <h:outputText value="#{p.genero}" />
+                                </p:column>
+                                <p:column width="100" filterBy="#{p.anio}">
+                                    <f:facet name="header">Año</f:facet>
+                                    <h:outputText value="#{p.anio}" />
+                                </p:column>
+                                <p:column width="100">
+                                    <f:facet name="header">Edicion</f:facet>
+                                    <p:commandButton title="Editar" value="" styleClass="btnEditar" actionListener="#{pelicula.edit(p)}" onclick="PF('edit').show();" update=":formulario:edit"/>
+                                </p:column>
+                                <p:column width="100">
+                                    <f:facet name="header">Borrado</f:facet>
+                                    <p:commandButton title="Eliminar" value="" styleClass="btnBorrar" action="#{pelicula.delete(p)}" update=":formulario:,message1" process="@all">
+                                        <p:confirm header="Confirmation" message="Estas a punto de eliminar una pelicula, ¿estas seguro?" icon="ui-icon-alert" />
+                                    </p:commandButton>
+                                    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                        <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                                    </p:confirmDialog>
+                                </p:column> 
+                            </p:dataTable>
+                            <br /> <br />
+                        </p>
+
+                        <p:dialog header="Editar Pelicula" widgetVar="edit">
+                            <p:outputPanel id="edit">
+                                <h:panelGrid styleClass="edicionPerfil" columns="2">                                    
+                                    <p:outputLabel styleClass="labelUser" value="Titulo "/> 
+                                    <h:inputText value="#{pelicula.peli.titulo}" size="33"/>
+                                    <p:outputLabel styleClass="labelUser" value="Sinopsis "/>
+                                    <p:inputTextarea rows="6" cols="33" value="#{pelicula.peli.psinosis}"/>
+                                    <p:outputLabel styleClass="labelUser" value="Nombre Imagen "/>
+                                        <p:outputLabel value="#{pelicula.peli.imagen}"/>
+                                    <p:outputLabel styleClass="labelUser" value="Subir Imagen "/>
+                                    <h:panelGroup>
+                                        
+                                        <p:fileUpload fileUploadListener="#{pelicula.subirImagen}" mode="advanced" dragDropSupport="false"
+                                                      update="mensage" sizeLimit="100000" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+                                        <p:growl id="mensage" showDetail="true" />
+                                    </h:panelGroup>
+                                    <p:outputLabel styleClass="labelUser" value="Genero "/>
+                                    <h:inputText value="#{pelicula.peli.genero}" size="33"/>
+                                    <p:outputLabel styleClass="labelUser" value="Trailer "/>
+                                     <h:inputText value="#{pelicula.peli.trailer}" maxlength="200" size="33"/>
+                                    <p:outputLabel styleClass="labelUser" value="Año "/>
+                                    <h:inputText value="#{pelicula.peli.anio}" maxlength="4" size="33"/>
+                                </h:panelGrid>
+                                <p:commandButton title="Guardar" styleClass="btnGuardar" value="" action="#{pelicula.save}" update=":formulario:" process="edit" />
+                            </p:outputPanel>
+                        </p:dialog>
+
+                    </h:form>
+
+                </p:outputPanel>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

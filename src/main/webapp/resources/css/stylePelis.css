@@ -1,0 +1,152 @@
+/*Css de la pagina principal - home.xhtml*/
+#content-titulo{
+    display:block;
+    text-align: center;
+    margin: 5em 0;
+}
+
+.galeria{
+    text-align: center;
+    margin: auto;
+}
+
+.galeria img{
+    width: 100%;
+    border-radius: 5px;
+}
+
+.contenerdorPelis{
+    display:block;
+    text-align: center;
+    /*margin: 2em;*/
+    margin: auto;
+    margin-top: 5em;
+    margin-bottom:2em;
+    width: 100%;
+}
+
+.ui-datagrid-column {
+    padding: 0.6em !important;
+}
+
+.contenerdorPelis h2{
+    font-size:2em;
+    margin-bottom: 1em;
+}
+
+.contenerdorPelis img{
+    width: 13em;
+    height: 20em;
+}
+.ui-panel .ui-panel-content {
+    height: 23em;
+    width: 100%;
+}
+/*Todos los titulos de las peliculas situadas en el grid de la pagina
+principal tienen el mismo tamaño, lo que permite que todos los marcos que rodean las
+imagenes se vean igual, los outputText se renderizan de tipo de lemento span si poseen 
+el atributo style o styleClass, por tanto si queremos que el archo del elemento cambie, deberemos
+colocarle un display:block, ya que el span es un elemento en linea*/
+.texto-grid-pelis{
+    display: block;
+    width: 19.3em;
+}
+
+
+/*CSS de infoPeli.xhtml informacion sobre las peliculas*/
+#content-info{
+    display: block;
+    margin: 2em auto;
+    width: 90%;    
+}
+
+.imagen-peli-info{
+    display: block;
+    width: 13em;
+    height: 24em;
+    border: 3px solid #616161;
+    
+}
+#tabla-peli{
+    padding: 2em;
+}
+.info-peli{
+    display: block;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding-left: 1.3em;
+    padding-right: 5em;
+
+}
+
+.texto{
+    line-height: 1.7em;
+    min-height: 15em;
+}
+
+.label-peli{
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.titulo-peli{
+    font-weight: bold;
+    display: block;
+    font-size: 2em;
+    text-align: center;
+}
+
+#containerPeliculas{
+    width: 76%;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    margin-top: 4em;
+    margin-right: 17em;
+}
+#containerPeliculas h2{
+    text-align: center;
+    margin-bottom: 1em;
+}
+#formulario{
+    display: flex;
+    text-align: center;
+}
+
+/*CSS para la vista nuevaPeli.xhtml*/
+.content-Nueva-Peli{
+    margin-top: 4em;
+    width: 72%;
+    min-height: 49em;
+}
+
+.content-Nueva-Peli h2{
+    text-align: center;
+    margin-bottom: 0.5em;
+    margin-left: 3.5em;
+}
+.content-Nueva-Peli #formInsert{
+    display: block;
+    margin: auto;
+    width: 41%;
+    /*text-align: center;*/
+}
+.content-Nueva-Peli form table{
+    margin: auto;
+    margin-bottom: 0.8em;
+    font-weight: bold;
+}
+
+.ui-fileupload-buttonbar{
+    display: flex;
+}
+
+.content-Nueva-Peli form button{
+    display: block;
+    margin: auto;
+
+}
+
+.content-Nueva-Peli form .botonInsertar{
+    margin-left: 14.6em;
+}

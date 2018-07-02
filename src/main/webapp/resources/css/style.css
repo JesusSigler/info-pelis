@@ -1,0 +1,228 @@
+/*css para la vista de login*/
+#body {
+    width: 100%;
+    height: 100vh;
+    background: cornflowerblue;
+}
+/*formulario del login*/
+#contenedorLogin {
+    display: block;
+    margin: 12em auto;
+    width: 64em;
+}
+/*css para el titulo h2 del login*/
+#body h2 {
+    margin-left: 5em;
+    font-size: 2em;
+}
+/*form del login*/
+#form {
+    width: 58%;
+    height: 150px;
+    padding: 50px;
+    background: white;
+    border-radius: 10px;
+    border: 4px solid black;
+    margin: auto;
+}
+
+.h2 {
+    width: 30px;
+}
+
+.p {
+    padding-bottom: 5px;
+}
+
+.span {
+    width: 85px;
+    float: left;
+    padding-top: 10px;
+}
+
+.usuario {
+    padding-left: 20px;
+    padding: 8px;
+}
+
+.pass {
+    padding: 7px;
+}
+
+#pboton {
+    text-align: center;
+    margin-top: 1.2em;
+}
+
+/*---------------------------------------------------------------------------------------*/
+/*Css de gestionUsuarios*/
+#containerListUsuario {
+    display: flex;
+    width: 62%;
+    padding-top: 40px;
+    text-align: center;
+    margin: auto;
+    margin-right: 24em;
+}
+
+#containerListUsuario h2 {
+    margin-bottom: 10px;
+}
+
+#containerListUsuario form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+#containerListUsuario form table {
+    width: 100%;
+    display: block;
+    text-align: center;
+    display: inline-table;
+}
+/*Estilos de los elementos del footer*/
+#bottom #pieNombre, #pieCurso, #pietitulo {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#bottom #pieNombre {
+    float: left;
+    color: white;
+    padding-left: 8%;
+}
+
+#pietitulo {
+    padding-left: 24%;
+    color: white;
+}
+
+#bottom #pieCurso {
+    float: right;
+    color: white;
+    padding-right: 10%;
+}
+
+/*Estilos de la pagina Registro.xhtml*/
+#formRegistro {
+    width: 16%;
+    padding: 50px;
+    background: #31a2e7;
+    margin: 11em auto;
+    color: white;
+}
+
+#formRegistro label {
+    width: 127px;
+    float: left;
+    padding-top: 10px;
+}
+
+.pRegistroButton {
+    display: block;
+    text-align: center;
+}
+
+#formRegistro .pRegistroButton input {
+    margin-top: 1.5em;
+}
+
+#formRegistro h2 {
+    text-align: left;
+    width: 12em;
+    margin-bottom: 1em;
+}
+
+.h_commandLinklinkclass {
+    padding-left: 1.8em;
+    padding-right: 1.8em;
+    font-size: 1.2em;
+}
+
+.width100 {
+    width: 100%;
+}
+
+/*Vista de perfil de usuario*/
+.panelPerfilUser {
+    margin: 6em;
+    width: 27em;
+    text-align: center;
+    font-size: 1.8em;
+    height: 16em;
+    margin-left: 10em;
+}
+
+#formu2 {
+    width: 20em;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+.labelUser {
+    float: left;
+    font-weight: bold;
+}
+
+.edicionPerfil {
+    margin-bottom: 1em;
+}
+
+.edicionPerfil input {
+    /*float: left;*/
+    text-align: center;
+}
+
+.botonEdicion {
+    padding: 0.3em;
+    /*width: 6.2em;*/
+    border: 1px solid #a8a8a8;
+    cursor: pointer;
+}
+/*No esta siendo utilizado*/
+.botonEdicion:hover {
+    background: #85b2cb;
+    background: #85b2cb
+        url("/peliculas/javax.faces.resource/images/ui-bg_highlight-hard_80_85b2cb_1x100.png.xhtml?ln=primefaces-aristo")
+        50% 50% repeat-x;
+    background: #85b2cb linear-gradient(top, rgba(255, 255, 255, 0.6),
+        rgba(255, 255, 255, 0));
+    background: #85b2cb
+        -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255,
+        0.6)), to(rgba(255, 255, 255, 0)));
+    background: #85b2cb -moz-linear-gradient(top, rgba(255, 255, 255, 0.6),
+        rgba(255, 255, 255, 0));
+}
+
+/*Imagenes del aside*/
+.webs-amigas {
+    width: 17em;
+    margin: auto;
+    margin-top: auto;
+    display: block;
+    margin-top: 3em;
+    height: 19em;
+}
+
+#left h2 {
+    font-size: 2.4em;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 1em;
+    text-align: center;
+}
+/*css para el panelGrid del menu de generos del aside*/
+#left table {
+    display: inline-table;
+    margin-left: 3.0em;
+    width: 100%;
+    line-height: 4em;
+    font-size: 1.7em;
+}
+
+/*Boton de exportar BD de la vista backUp-BD*/
+
+#btnExport{
+    margin-top: 3em;
+    margin-left: 3.9em;
+}

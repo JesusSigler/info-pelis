@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <h:outputStylesheet name="./css/style.css"/>
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+    </h:head>
+    <h:body>
+        <h:form id="formRegistro">
+            <h2>Registro de usuario</h2>
+            <p class="p">
+                <p:outputLabel value="Nombre de Usuario: "/> 
+                <p:inputText id="usuario1" styleClass="usuario" required="true" label="nombre-usuario"
+                             size="25"
+                             value="#{usuarios.item1.nombre}"
+                             requiredMessage="campo usuario es requerido" />
+                <h:message for="usuario1" style="color:red;margin-left:10px;" />
+
+                <h:outputText value="El usuario ya existe"
+                              rendered="#{usuarios.existUser == false}" />
+                <p:watermark for="usuario1" value="Nombre usuario" />
+                 <p:message for="usuario1" />
+            </p>
+            <p class="p">
+                <p:outputLabel value="Email: "/>
+                <p:inputText id="email" required="true" label="email" size="25"
+                             requiredMessage="El email es requerido"
+                             validatorMessage="Formato de email incorrecto"
+                             value="#{usuarios.item1.email}">
+
+                    <f:validateRegex
+                        pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                </p:inputText>
+                <p:watermark for="email" value="Email Address" />
+                <p:message for="email" />
+            </p>
+            <p class="p">
+
+                <p:outputLabel value="Password: "/>
+                <h:inputSecret id="password" size="18" value="#{usuarios.item1.password}"
+                               required="true"
+                               requiredMessage="El paswword es requerido"/>
+                <p:watermark for="password" value="Password" />
+                <p:message for="password" />
+            </p>
+
+            <p class="pRegistroButton">
+                <h:commandButton styleClass="botonEdicion" value="Insertar" action="#{usuarios.add}" />
+            </p>
+        </h:form>
+    </h:body>
+</html>

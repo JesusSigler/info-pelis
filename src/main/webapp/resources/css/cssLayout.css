@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* css de la estructura de la cabecera*/
+#top {
+    padding: 20px auto;
+    width: 100%;
+    background: #73CEE3;
+}
+
+
+/*css de la estructura del aside izquierdo*/
+#left {
+    float: left;
+    width: 15%;
+    min-height: 127.5em
+
+}
+/*css de la estructura del aside derecho en casod e que lo hubiera*/
+#right {
+    /*float: right;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;*/
+}
+/*Es esl css utilizado para la estructura del contenido de la web*/
+.left_content {
+    /*background-color: black;*/
+    width: 85%;
+    float: left;
+    min-height: 127.5em
+}
+
+.right_content {
+    /*background-color: #dddddd;
+    padding: 5px;
+    margin: 0px 170px 0px 170px;*/
+}
+/*css de la estructura del footer*/
+#bottom {
+    background-color: #c2dfef;
+    padding: 5px;
+    width: 100%;
+    padding: 10px 0;
+    background: black;
+    float: left;
+}
+/*css para los enlaces dentro de la cabecera al visitarlos y sin visitar*/
+#top a:link, #top a:visited {
+    color: black;
+    font-weight : bold;
+    text-decoration: none;
+}
+/*css para los enlaces dentro de la cabecera al pasar el raton por encima*/
+#top a:link:hover, #top a:visited:hover  {
+    color: black;
+    font-weight : bold;
+    text-decoration : underline;
+}
+
+
+

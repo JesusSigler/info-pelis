@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./Template/plantilla.xhtml">
+
+            <ui:define name="content">
+                <div align="center">
+                    <p:dialog modal="true" widgetVar="dlgRestore" header="Upload and restore in progress..." draggable="false" closable="false" resizable="false">  
+                        <p:graphicImage library="images" name="ajaxloadingbar.gif" />  
+                    </p:dialog> 
+
+                    <p:panel header="Restore Database" styleClass="RestorePanel" > 
+                        <h:panelGrid columns="1" >
+                            <p:outputLabel value="Upload backup file and restore the database:"/>               
+                            <h:form enctype="multipart/form-data">  
+                                <p:fileUpload fileUploadListener="#{mysql.handleRestoreFileUpload}" 
+                                              onstart="dlgRestore.show()" oncomplete="dlgRestore.hide()" 
+                                              mode="advanced"  
+                                              update="messages"  
+                                              auto="true"  
+                                              sizeLimit="1000000000"   
+                                              allowTypes="/(\.|\/)(sql)$/"
+                                              label="Upload and Restore" 
+                                              styleClass="FileUpload"/>  
+                                <p:growl id="messages" showDetail="true"/>                       
+                            </h:form>    
+                        </h:panelGrid>
+                    </p:panel> 
+                </div>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

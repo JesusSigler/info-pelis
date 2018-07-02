@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"    
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <link rel="stylesheet" href="resources/css/style.css" type="text/css"/>
+
+        <h:outputStylesheet name="./css/style.css"/>
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+    </h:head>
+    <h:body id="body">
+        <div id="contenedorLogin">
+            <h2 class="h2">Login:</h2>
+        <h:form id="form">
+            <p class="p">
+                <span class="span">Usuario:</span>
+                <h:inputText id ="usuario" styleClass="usuario" required="true"
+                             value="#{usuarios.item1.nombre}"
+                             requiredMessage="campo usuario es requerido" />
+                <p:watermark for="usuario" value="Nombre de usuario" />
+                <h:message for="usuario" style="color:red;margin-left:10px;" />
+                <h:outputText value="Usuario incorrecto"
+                              rendered="#{usuarios.existUser == false}" />
+            </p>
+
+
+            <p class="p">
+                <span class="span">Password:</span>
+                <h:inputSecret id="pass" value="#{usuarios.item1.password}"
+                               style="padding:8px;"  required="true"
+                               requiredMessage="El paswword es requerido"/>
+                <p:watermark for="pass" value="Password" />
+                <p:message for="pass" />
+            </p>
+            <p id="pboton">
+                <h:link class="h_commandLinklinkclass" value="Registrarse" outcome="registro"/>
+                <h:commandButton id="boton" value="Login" action="#{usuarios.login}" style="padding: 8px; padding-left:30px;padding-right:30px;" />
+            </p>
+
+        </h:form>
+        </div> 
+    </h:body>
+</html>

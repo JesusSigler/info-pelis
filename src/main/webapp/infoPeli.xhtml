@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./Template/plantilla.xhtml">
+            <ui:define name="left">
+                <h:form>
+                    <ui:repeat value="#{pelicula.listaGenero}" var="g">
+                        <h:panelGrid columns="1">
+                            <h:link value="#{g.genero}" outcome="pelisPorGenero">
+                                <f:param name="Genero" value="#{g.genero}"></f:param>
+                            </h:link>
+                        </h:panelGrid >
+                    </ui:repeat>
+                </h:form>
+            </ui:define>
+            <ui:define name="content">
+                <div id="content-info">
+                    <h:panelGrid columns="2">
+                        <h:panelGrid columns="1">
+                        <p:graphicImage styleClass="imagen-peli-info" name="imagenes/pelis/#{pelicula.peli.imagen}.jpg" />
+                        <p:spacer height="500" width="13em"/>
+                        </h:panelGrid>
+                        <h:panelGrid columns="1" id="tabla-peli">
+                            <h:outputText styleClass="titulo-peli" value="#{pelicula.peli.titulo}" />
+                            <h:outputLabel styleClass="label-peli" value="Sinopsis"/>
+                            <p:spacer height="2"/>
+                            <h:outputText styleClass="info-peli texto" value="#{pelicula.peli.psinosis}" />
+                            <p:spacer/>
+                            <h:outputLabel styleClass="label-peli" value="Genero"/>
+                            <p:spacer/>
+                            <h:outputText styleClass="info-peli" value="#{pelicula.peli.genero}"/>
+                            <p:spacer/>
+                            <h:outputLabel styleClass="label-peli" value="Trailer"/>
+                            <p:spacer/>
+                            <p:media styleClass="info-peli" value="#{pelicula.peli.trailer}" width="340" height="340" player="flash" ><f:param name="allowFullScreen" value="true" /></p:media>
+                            <p:spacer/>
+                            <h:outputLabel styleClass="label-peli" value="Año"/>
+                            <p:spacer/>
+                            <h:outputText styleClass="info-peli" value="#{pelicula.peli.anio}"/>
+                        </h:panelGrid>
+                    </h:panelGrid>
+                </div>
+
+            </ui:define>           
+        </ui:composition>
+
+    </body>
+</html>

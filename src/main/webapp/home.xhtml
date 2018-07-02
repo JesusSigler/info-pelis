@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<body>
+
+	<ui:composition template="./Template/plantilla.xhtml">
+		<ui:define name="left">
+			<h2>Webs Amigas</h2>
+			<a href="https://www.inkapelis.com/" target="_blank"> <p:graphicImage styleClass="webs-amigas"
+					name="imagenes/webs/inkapelis.png" alt="paginaInkaPelis"
+					title="InkaPelis" />
+			</a>
+			<a href="https://pelis24.is/" target="_blank"> <p:graphicImage styleClass="webs-amigas"
+					name="imagenes/webs/pelis24.jpg" alt="paginaPelis24"
+					title="Pelis24" />
+			</a>
+			<a href="https://pepecine.io/" target="_blank"><p:graphicImage styleClass="webs-amigas"
+				name="imagenes/webs/pepecine.png" alt="paginaPepecine"
+				title="PepeCine" /> </a>
+			<h2>Géneros</h2>
+			<h:form>
+				<ui:repeat value="#{pelicula.listaGenero}" var="g">
+					<h:panelGrid columns="1">
+						<h:link value="#{g.genero}" outcome="pelisPorGenero">
+							<f:param name="Genero" value="#{g.genero}"></f:param>
+						</h:link>
+					</h:panelGrid>
+				</ui:repeat>
+			</h:form>
+		</ui:define>
+		<ui:define name="content">
+			<div id="content-titulo">
+				<h1 id="tituloWeb">INFO PELIS</h1>
+				<h3>Toda la informacion sobre tus peliculas favortitas</h3>
+			</div>
+			<p:galleria styleClass="galeria" value="#{slider.slider}" var="image"
+				panelWidth="600" panelHeight="428" showCaption="true">
+				<p:graphicImage name="imagenes/slider/#{image.foto}"
+					alt="#{image.descripcion}" title="#{image.nombre}" />
+			</p:galleria>
+			<h:panelGrid columns="2">
+				<h:form>
+					<p:autoComplete widgetVar="busqueda"
+						value="#{busqueda.peliSeleccionada}"
+						completeMethod="#{busqueda.completarTitulo}" var="p"
+						itemLabel="#{p.titulo}" converter="pelisConverter"
+						placeholder="Buscar Peliculas" forceSelection="true" cache="true">
+					</p:autoComplete>
+					<p:spacer width="5" />
+					<p:commandButton id="botonBusq" value="" styleClass="btnBuscar"
+						action="#{busqueda.mostrarPeliSeleccionada}" ajax="false"></p:commandButton>
+				</h:form>
+			</h:panelGrid>
+			<div class="contenerdorPelis">
+
+				<h2>Todas las Películas</h2>
+				<p:dataGrid value="#{pelicula.listaPelis}" columns="4" layout="grid"
+					var="p" rows="8" paginator="true" id="pelis"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="8,12">
+					<p:panel style="text-align:center">
+						<h:panelGrid columns="1" style="width:85%">
+							<h:form id="peliculas">
+								<h:commandLink action="#{pelicula.mostrarPelicula(p)}">
+									<p:graphicImage name="imagenes/pelis/#{p.imagen}.jpg" />
+								</h:commandLink>
+							</h:form>
+							<h:outputText styleClass="texto-grid-pelis" value="#{p.titulo}" />
+						</h:panelGrid>
+					</p:panel>
+				</p:dataGrid>
+			</div>
+
+		</ui:define>
+	</ui:composition>
+
+</body>
+</html>

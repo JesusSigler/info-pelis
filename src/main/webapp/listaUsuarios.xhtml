@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+        <ui:composition template="./Template/plantilla.xhtml">
+
+            <ui:define name="content">
+                <p:outputPanel id="containerListUsuario">
+                    <h:form id="formu">
+
+                        <h2>Lista de Usuarios</h2>
+                        <p>
+
+                            <p:dataTable id="listaU" value="#{usuarios.listaUsuarios}" styleClass="borderless" var="u" rows="10" paginator="true" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15">
+                                <p:growl id="message1" showDetail="true" autoUpdate="true" /> 
+                                <p:column width="100" filterBy="#{u.nombre}">
+                                    <f:facet name="header">Nombre de Usuario</f:facet>
+                                    <h:outputText value="#{u.nombre}" />
+                                </p:column>
+                                <p:column width="200" filterBy="#{u.email}">
+                                    <f:facet name="header">Email</f:facet>
+                                    <h:outputText value="#{u.email}" />
+                                </p:column>
+                                <p:column width="100" filterBy="#{u.rol}">
+                                    <f:facet name="header">Rol</f:facet>
+                                    <h:outputText value="#{u.rol}" />
+                                </p:column>
+                                <p:column width="100">
+                                    <f:facet name="header">Edicion</f:facet>
+                                    <p:commandButton value="" styleClass="btnEditar" actionListener="#{usuarios.edit(u)}" onclick="PF('edicion2').show();" update=":formu:edicion"/>
+                                </p:column>
+                                <p:column width="100">
+                                    <f:facet name="header">Borrado</f:facet>
+                                    <p:commandButton value="" styleClass="btnBorrar" action="#{usuarios.delete(u)}" update=":formu:,message1" process="@all">
+                                        <p:confirm header="Confirmation" message="Estas a punto de dar de baja a un usuario, ¿estas seguro?" icon="ui-icon-alert" />
+                                    </p:commandButton>
+                                    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                        <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                                    </p:confirmDialog>
+
+                                </p:column> 
+                            </p:dataTable>
+                            <br /> <br />
+                        </p>
+
+                        <p:dialog header="Editar Usuario" widgetVar="edicion2">
+                            <p:outputPanel id="edicion">
+                                <h:panelGrid styleClass="edicionPerfil" columns="2">
+                                    <p:outputLabel styleClass="labelUser" value="Usuario "/> 
+                                    <h:inputText value="#{usuarios.item1.nombre}" rendered="#{usuarios.edit != true}"/>
+                                    <h:outputText value="#{usuarios.item1.nombre}" rendered="#{usuarios.edit != false}" />
+
+                                    <p:outputLabel styleClass="labelUser" value="Email "/>
+
+                                    <h:inputText  size="25" value="#{usuarios.item1.email}"></h:inputText> 
+                                    <p:outputLabel styleClass="labelUser" value="Password "/>
+                                    <h:inputSecret id="pass1" size="25" value="#{usuarios.item1.password}" redisplay="true"></h:inputSecret>
+                                    <p:outputLabel styleClass="labelUser" value="Rol "/>
+                                    <h:inputText value="#{usuarios.item1.rol}" size="25"/>
+
+                                </h:panelGrid>
+                                <h:commandButton styleClass="btnGuardar" value="" action="#{usuarios.save}" />
+
+                            </p:outputPanel>
+                        </p:dialog>
+                    </h:form>
+                </p:outputPanel>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

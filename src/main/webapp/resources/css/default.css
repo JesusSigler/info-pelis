@@ -1,0 +1,120 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	height: 100%;
+}
+/*css para la fuente del body y color de fondo*/
+body {
+	background-color: #ffffff;
+	font-size: 12px;
+	font-family: Verdana, "Verdana CE", Arial, "Arial CE",
+		"Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+	color: #000000;
+	/*margin: 10px;*/
+}
+
+h1 {
+	font-family: Arial, "Arial CE", "Lucida Grande CE", lucida,
+		"Helvetica CE", sans-serif;
+	font-size: 7em;
+	font-weight: bold;
+	margin: 0px;
+	padding: 0px;
+}
+
+a:link, a:visited {
+	color: black;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:link:hover, a:visited:hover {
+	color: #045491;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.float-left {
+	float: left;
+}
+
+.ui-panel .ui-panel-titlebar {
+	background: #3B73B9;
+	color: white;
+	text-align: center
+}
+
+/*Tablas, gestion de usuarios y peliculas*/
+.borderless tbody, .borderless tbody tr,
+	.borderless tbody td {
+	border: none !important;
+}
+
+.borderless thead th {
+	background: #0055ff;
+	color: white;
+	border-right-width:1px;
+	border-top: none !important;
+}
+
+.borderless tbody tr:hover{
+	background: gray;
+}
+
+/*Iconos de botones*/
+
+.btnEditar{
+    background: transparent url("#{facesContext.externalContext.request.contextPath}/resources/imagenes/iconos/edit.png") no-repeat scroll center !important;
+    background-size: contain;
+    width: 32px;   
+    height: 32px; 
+    border: none !important;  
+}
+
+.btnBorrar{
+    background: transparent url("#{facesContext.externalContext.request.contextPath}/resources/imagenes/iconos/eliminar.png") no-repeat scroll center !important;
+    width: 32px;   
+    height: 32px; 
+    background-size: contain;
+    border: none !important;  
+}
+/*Botones del perfil del usuario*/
+.btnBorrarCuenta{
+    background: transparent url("#{facesContext.externalContext.request.contextPath}/resources/imagenes/iconos/process-stop.png") no-repeat scroll center !important;
+    width: 32px;   
+    height: 32px; 
+    background-size: contain;
+    border: none !important;  
+}
+
+.btnEditarCuenta{
+    background: transparent url("#{facesContext.externalContext.request.contextPath}/resources/imagenes/iconos/edit-perfil.png") no-repeat scroll center !important;
+    background-size: contain;
+    width: 32px;   
+    height: 32px; 
+    border: none !important;  
+}
+/*Boton guardar normal*/
+.btnGuardar{
+    background: transparent url("#{facesContext.externalContext.request.contextPath}/resources/imagenes/iconos/guardar.png") no-repeat scroll center !important;
+    width: 32px;   
+    height: 32px;  
+    background-size: contain;
+    border: none !important;  
+}
+/*Boton del buscador, la lupa, de la pagina principal*/
+.btnBuscar{
+    background: transparent url("#{facesContext.externalContext.request.contextPath}/resources/imagenes/iconos/system-search.png") no-repeat scroll center !important;
+    width: 32px;   
+    height: 32px;  
+    background-size: contain;
+    border: none !important;  
+}
+
+.btnBuscar:hover{
+    border: none !important;
+}
+
