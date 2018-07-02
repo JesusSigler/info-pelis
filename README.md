@@ -24,9 +24,9 @@ Crear base de datos
 
 create database peliculas;
 
-salir
+salir del prompt de mysql
 
-exit
+exit;
 
 importar Base de datos
 
@@ -39,7 +39,7 @@ Desde terminal (Sin IDE, opcional)
 
 mvn clean package install
 
-Ir al directorio target reciente generado y copiar el .war al directorio webapp de tomcat.
+Ir al directorio /target recien generado y copiar el .war al directorio webapp de tomcat.
 
 Arrancar tomcat
 -----------------------------------------------
